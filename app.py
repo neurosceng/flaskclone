@@ -48,7 +48,7 @@ def dir(path):
 
 def get_image_base64(image_path):
     #image_path = "minimalapp/photo/bus.jpg"
-    image_path = "/Users/okmac/flask/flaskbook/apps/minimalapp/photo/" + image_path
+    image_path = "photo/" + image_path
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
     return encoded_string
@@ -71,7 +71,7 @@ def upload():
     return render_template("upload.html")
 
 # 絶対パスでアップロードされた画像を保存するディレクトリを指定
-UPLOAD_FOLDER = os.path.abspath('/Users/okmac/flask/flaskbook/apps/minimalapp/upload/')
+UPLOAD_FOLDER = os.path.abspath('upload/')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # 保存先のディレクトリが存在しない場合は作成する
@@ -98,7 +98,7 @@ def catch():
         # 実行
         subprocess.run(cmd.split())
 
-        folder_path = sorted(glob.glob("/Users/okmac/flask/flaskbook/apps/minimalapp/runs/detect/*"))[-1]
+        folder_path = sorted(glob.glob("runs/detect/*"))[-1]
         file_path = glob.glob(folder_path+"/*")[-1]
 
         image_base64 = get_image(file_path)
