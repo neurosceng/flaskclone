@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボタンクリックでURLに遷移</title>
+</head>
+<body>
+
+<!-- ボタンをクリックすると指定のURLに遷移する -->
+<button onclick="redirectToURL()">クリックして移動</button>
+
+<script>
+  // URLに遷移する関数
+  function redirectToURL() {
+    // リダイレクト先のURLを指定
+    //127.0.0.1/ の後に続く文字を入れる
+    //127.0.0.1/helloとなる
+    var targetURL = "hello";
+
+    // リダイレクト
+    window.location.href = targetURL;
+  }
+</script>
+
+</body>
+</html>
